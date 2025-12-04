@@ -1,1 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mounika | AI ML Engineer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      background-color: #f9fafb;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(to right, #111827, #1f2937);
+      color: #f9fafb;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: #e5e7eb;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-main h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-main h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #9ca3af;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-main p {
+      color: #e5e7eb;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #2563eb;
+      color: #f9fafb;
+      border-color: #2563eb;
+    }
+
+    .btn-primary:hover {
+      background-color: #1d4ed8;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #e5e7eb;
+      border-color: #4b5563;
+    }
+
+    .btn-secondary:hover {
+      background-color: #374151;
+      text-decoration: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #111827;
+      border-radius: 999px;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 0.75rem;
+      border: 1px solid #374151;
+    }
+
+    .hero-badge span {
+      display: inline-flex;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: #22c55e;
+    }
+
+    .hero-card {
+      background-color: #111827;
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      border: 1px solid #374151;
+    }
+
+    .hero-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: #e5e7eb;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .hero-card ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    main {
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background-color: #ffffff;
+      border-radius: 0.9rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background-color: #ffffff;
+      border-radius: 1rem;
+      padding: 1.25rem 1.3rem;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7280;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: #111827;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-tech {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: auto;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .experience-item {
+      background-color: #ffffff;
+      border-radius: 0.9rem;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.3rem;
+    }
+
+    .experience-role {
+      font-weight: 600;
+    }
+
+    .experience-meta {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .experience-item ul {
+      margin-left: 1.1rem;
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .experience-item ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-card {
+      background-color: #111827;
+      color: #e5e7eb;
+      border-radius: 1.1rem;
+      padding: 1.5rem 1.6rem;
+      border: 1px solid #1f2937;
+    }
+
+    .contact-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-card p {
+      font-size: 0.95rem;
+      color: #d1d5db;
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-details {
+      font-size: 0.92rem;
+    }
+
+    .contact-details div {
+      margin-bottom: 0.25rem;
+    }
+
+    footer {
+      padding: 1.5rem;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.85rem;
+      color: #6b7280;
+      text-align: center;
+      background-color: #f3f4f6;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 1.8rem 1rem 2.2rem;
+      }
+
+      main {
+        padding: 2rem 1rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Mounika</div>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hero">
+        <div class="hero-main">
+          <div class="hero-badge">
+            <span></span>
+            Open to Data, ML and AI roles
+          </div>
+          <h1>AI and ML Engineer building production ready systems</h1>
+          <h2>Data Scientist and Data Analyst experience across finance, healthcare and marketing</h2>
+          <p>
+            I work on churn prediction, uplift modeling, generative AI, RAG pipelines and analytics.
+            I like turning messy data into useful products that can run in production and pass audits.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">View projects</a>
+            <a href="#contact" class="btn-secondary">Contact me</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>Quick snapshot</h3>
+          <ul>
+            <li>4+ years in AI, ML and data</li>
+            <li>Hands on with PySpark, XGBoost, LangChain, RAG and MLflow</li>
+            <li>MLOps with FastAPI, Docker, Kubernetes and CI/CD</li>
+            <li>Worked with compliance focused environments such as HIPAA and SOC 2</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section id="about">
+        <h2>About</h2>
+        <p class="section-subtitle">
+          AI and ML Engineer with a background in data science and analytics. I enjoy building models that not only work in notebooks but also ship to production and support real teams.
+        </p>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <p class="section-subtitle">Core areas I work with day to day.</p>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Machine Learning</h3>
+            <p>Logistic regression, tree based models, XGBoost, LightGBM, clustering, time series, uplift modeling and causal inference.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Generative AI</h3>
+            <p>OpenAI and Azure OpenAI, LangChain, RAG pipelines, embeddings, Pinecone, semantic search, prompt design and LLM governance.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Data Engineering</h3>
+            <p>PySpark, SQL, Airflow, dbt, Snowflake, BigQuery, batch and incremental pipelines and feature store patterns.</p>
+          </div>
+          <div class="skill-card">
+            <h3>MLOps and APIs</h3>
+            <p>FastAPI services, Docker and Kubernetes, Azure ML, GCP Cloud Run, MLflow tracking, GitHub Actions and monitoring with Prometheus and Grafana.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Analytics and BI</h3>
+            <p>Python, SQL, Tableau, Power BI, funnel analysis, experiment analysis, forecasting and attribution.</p>
+          </div>
+          <div class="skill-card">
+            <h3>Governance</h3>
+            <p>HIPAA, SOC 2, PHI and PII handling, access controls and documentation for audits and quality teams.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <p class="section-subtitle">
+          A selection of work that reflects how I approach AI, ML and analytics in real use cases.
+        </p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-tag">Customer analytics</div>
+            <h3>Churn and uplift optimization</h3>
+            <p>
+              End to end churn and uplift modeling pipeline using Spark and XGBoost to prioritize high risk customer segments and optimize retention campaigns.
+            </p>
+            <p class="project-tech">
+              PySpark, XGBoost, MLflow, experiment tracking, segmentation
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">LLM governance</div>
+            <h3>LLM governance toolkit</h3>
+            <p>
+              Monitoring and evaluation toolkit for LLMs with dashboards for hallucination behavior, safety checks and prompt response quality.
+            </p>
+            <p class="project-tech">
+              Streamlit, Guardrails, TruLens, OpenAI APIs, observability
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Generative AI</div>
+            <h3>Generative personalization engine</h3>
+            <p>
+              RAG powered Q and A and product recommendation flows that use semantic search to answer user questions and surface relevant items.
+            </p>
+            <p class="project-tech">
+              LangChain, Pinecone, embeddings, FastAPI, RAG
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Marketing science</div>
+            <h3>LTV and causal modeling system</h3>
+            <p>
+              Combined lifetime value forecasting with causal impact analysis to support offer decisions and measure campaign lift across cohorts.
+            </p>
+            <p class="project-tech">
+              Python, time series, causal inference, A/B testing
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Analytics</div>
+            <h3>Marketing analytics and experimentation</h3>
+            <p>
+              Dashboards and analyses for funnel performance, attribution, campaign ROI and multivariate tests for digital and email campaigns.
+            </p>
+            <p class="project-tech">
+              SQL, Python, Tableau, Plotly, experiment analysis
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Data quality</div>
+            <h3>Clinical and manufacturing data quality</h3>
+            <p>
+              Data pipelines and reports for safety, compliance and quality metrics across clinical and manufacturing data sources.
+            </p>
+            <p class="project-tech">
+              PySpark, SQL, Tableau, QC metrics, anomaly checks
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-list">
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="experience-role">AI and ML Engineer</div>
+              <div class="experience-meta">Citi • Remote • 2025 to present</div>
+            </div>
+            <ul>
+              <li>Built uplift and churn models in PySpark and XGBoost to improve retention for high risk segments.</li>
+              <li>Developed FastAPI based GPT services with token filtering and safety checks, deployed on Azure Kubernetes Service.</li>
+              <li>Created dashboards to monitor LLM performance, hallucination rates and compliance indicators.</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="experience-role">Data Analyst</div>
+              <div class="experience-meta">University of Memphis • 2024 to 2025</div>
+            </div>
+            <ul>
+              <li>Delivered LTV forecasting and causal impact modeling for credit and marketing decisions.</li>
+              <li>Built segmentation models, forecasting models and automated dashboards for funnel and channel performance.</li>
+              <li>Supported A/B and multivariate testing with uplift analysis and recommendations.</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-header">
+              <div class="experience-role">Data Scientist</div>
+              <div class="experience-meta">Dr. Reddy's Laboratories • 2021 to 2023</div>
+            </div>
+            <ul>
+              <li>Linked clinical and manufacturing datasets using PySpark to track safety and quality metrics.</li>
+              <li>Created dashboards and reports for QA and regulatory teams and automated data cleansing for logs and documents.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-card">
+          <h3>Let us talk</h3>
+          <p>
+            I am open to opportunities in AI, ML, data science and analytics.
+            You can reach me by email or on LinkedIn.
+          </p>
+          <div class="contact-details">
+            <div>Email: <a href="mailto:guptamounika0@gmail.com">guptamounika0@gmail.com</a></div>
+            <div>Phone: <a href="tel:+19014683053">+1 (901) 468 3053</a></div>
+            <div>LinkedIn: <a href="https://www.linkedin.com" target="_blank">Add your LinkedIn profile link here</a></div>
+            <div>GitHub: <a href="https://github.com" target="_blank">Add your GitHub username link here</a></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Mounika. Built and hosted on GitHub Pages.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
